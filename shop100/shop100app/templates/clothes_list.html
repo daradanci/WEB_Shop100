@@ -2,7 +2,7 @@
 {% block title %}Список товаров{% endblock %}
 {% block content %}
     <h1 class="page-title">Список товаров</h1>
-    
+
     <form method="GET" action="" class="filter-form">
         <input type="text" class="search-input" placeholder="Поиск..." name="search" value="{{ search_query }}">
         <select name="filter_by" class="filter-select">
@@ -13,13 +13,22 @@
         <button type="submit" class="filter-button">Применить</button>
     </form>
 
+    <div class="cart-summary">
+        <a href="{% url 'cart_detail' %}">Корзина ({{ cart_count }} товаров)</a>
+    </div>
+
     <div class="products">
         {% for item in clothes %}
             <div class="product-card">
                 <img src="{{ item.image_url }}" alt="{{ item.name }}" class="product-image">
-                <h2 class="product-title"><a href="/clothes/{{ item.id }}/" class="product-link">{{ item.name }}</a></h2>
+                <h2 class="product-title"><a href="{% url 'clothes_detail' item.id %}">{{ item.name }}</a></h2>
                 <p class="product-price">Цена: {{ item.price }} ₽</p>
                 <p class="product-date">Дата: {{ item.date }}</p>
+
+                <form method="POST" action="{% url 'add_to_cart' item.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Добавить в корзину</button>
+                </form>
             </div>
         {% endfor %}
     </div>
