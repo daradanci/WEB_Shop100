@@ -1,25 +1,25 @@
 {% extends "base.html" %}
 {% block title %}Список товаров{% endblock %}
 {% block content %}
-    <h1>Список товаров</h1>
+    <h1 class="page-title">Список товаров</h1>
     
-    <form method="GET" action="">
-        <input type="text" placeholder="Поиск..." name="search" value="{{ search_query }}">
-        <select name="filter_by">
+    <form method="GET" action="" class="filter-form">
+        <input type="text" class="search-input" placeholder="Поиск..." name="search" value="{{ search_query }}">
+        <select name="filter_by" class="filter-select">
             <option value="all" {% if filter_by == "all" %}selected{% endif %}>Без сортировки</option>
             <option value="price" {% if filter_by == "price" %}selected{% endif %}>По цене</option>
             <option value="date" {% if filter_by == "date" %}selected{% endif %}>По дате</option>
         </select>
-        <button type="submit">Применить</button>
+        <button type="submit" class="filter-button">Применить</button>
     </form>
 
     <div class="products">
         {% for item in clothes %}
             <div class="product-card">
-                <img src="{{ item.image_url }}" alt="{{ item.name }}">
-                <h2><a href="/clothes/{{ item.id }}/">{{ item.name }}</a></h2>
-                <p>Цена: {{ item.price }} ₽</p>
-                <p>Дата: {{ item.date }}</p>
+                <img src="{{ item.image_url }}" alt="{{ item.name }}" class="product-image">
+                <h2 class="product-title"><a href="/clothes/{{ item.id }}/" class="product-link">{{ item.name }}</a></h2>
+                <p class="product-price">Цена: {{ item.price }} ₽</p>
+                <p class="product-date">Дата: {{ item.date }}</p>
             </div>
         {% endfor %}
     </div>

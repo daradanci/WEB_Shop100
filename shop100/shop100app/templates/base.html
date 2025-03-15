@@ -3,16 +3,29 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Магазин одежды{% endblock %}</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
-        <a href="/">Домой</a>
-        <a href="/cart/">Корзина ({{ cart.total_count }})</a>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">Shop100</a>
+                <div class="menu">
+                    <a href="/">Домой</a>
+                    <a href="/cart/">Корзина ({{ cart.total_count }})</a>
+                </div>
+            </nav>
+        </div>
     </header>
-    <main>
+    <main class="container">
         {% block content %}{% endblock %}
     </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Магазин одежды. Все права защищены.</p>
+        </div>
+    </footer>
 </body>
 </html>
