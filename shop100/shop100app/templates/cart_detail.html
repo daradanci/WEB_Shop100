@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Корзина{% endblock %}
+{% block content %}
+    <h1>Корзина</h1>
+    {% for item in cart.clothes %}
+        <div class="cart-item">
+            <img src="{{ item.image_url }}" alt="{{ item.name }}">
+            <p>{{ item.name }} - {{ item.price }} ₽</p>
+        </div>
+    {% endfor %}
+{% endblock %}
