@@ -2,10 +2,24 @@ from django.shortcuts import render
 
 # Данные товаров (без БД)
 clothes = [
-    {"id": 1, "name": "Футболка Adidas", "price": 2500, "date": "2025-04-10", "description": "Качественная хлопковая футболка.", "image_url": "https://minio.example.com/1.jpg"},
-    {"id": 2, "name": "Джинсы Levi's", "price": 1500, "date": "2025-04-12", "description": "Стильные джинсы из денима.", "image_url": "https://minio.example.com/2.jpg"},
-    {"id": 3, "name": "Кроссовки Nike", "price": 3500, "date": "2025-04-15", "description": "Легкие и удобные кроссовки.", "image_url": "https://minio.example.com/3.jpg"},
+    {"id": 1, "name": "Forest Coat", "price": 2500, "date": "2025-04-10", 
+     "description": "Утепленное пальто в стиле природного минимализма.",
+     "image_url": "http://127.0.0.1:3010/shop100-images/forest_coat.jpg"},
+    {"id": 2, "name": "Goth Sweater", "price": 5500, "date": "2025-04-12", 
+     "description": "Черный свитер с готическими узорами и удобной посадкой.",
+     "image_url": "http://127.0.0.1:3010/shop100-images/goth_sweater.jpg"},
+    {"id": 3, "name": "Night Velvet Boots", "price": 7500, "date": "2025-04-15", 
+     "description": "Элегантные сапоги из ночного бархата для стильных образов.",
+     "image_url": "http://127.0.0.1:3010/shop100-images/night_velvet_boots.jpg"},
+    {"id": 4, "name": "Night Velvet Jacket", "price": 12500, "date": "2025-04-18", 
+     "description": "Куртка из темного бархата с глубоким блеском.",
+     "image_url": "http://127.0.0.1:3010/shop100-images/night_velvet_jacket.jpg"},
+    {"id": 5, "name": "Fire Jeans", "price": 2200, "date": "2025-04-20", 
+     "description": "Яркие джинсы с огненным оттенком и прочной тканью.",
+     "image_url": "http://127.0.0.1:3010/shop100-images/fire_jeans.jpg"}
 ]
+
+
 
 # Данные корзины (без БД)
 cart = {
